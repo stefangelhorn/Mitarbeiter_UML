@@ -5,23 +5,21 @@
 
 class Mitarbeiter
 {
-    std::string nachname;
-    std::string vorname;
-    int mitarbeiterID;
-    double gehalt;
-    
+   
 public:
     Mitarbeiter(const std::string& _vorname, const std::string& _nachname, int ID, double _gehalt);
-    /*
-    Mitarbeiter{const Mitarbeiter& other}:
-    nachname{other.nachname}, 
-    vorname{other.vorname}, 
-    mitarbeiterID{other.mitarbeiterID}, 
-    gehalt{other.gehalt}{}
-    /**/
-    virtual void infosAnzeigen()const;  
+    
+    Mitarbeiter(const Mitarbeiter& other); 
+    
+    virtual void infosAnzeigen()const;
+
     void befoerdern(double betrag);
     virtual ~Mitarbeiter(){}
+private:
+    std::string vorname;
+    std::string nachname;
+    int mitarbeiterID;
+    double gehalt;
 };
 
 class Manager : public Mitarbeiter
